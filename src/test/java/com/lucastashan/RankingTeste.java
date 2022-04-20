@@ -48,6 +48,25 @@ public class RankingTeste {
    }
 
    @Test
+   public void testAddOffPoint() {
+    ranking.add(new Record("lucas", 100));
+    ranking.add(new Record("joao", 20));
+    ranking.add(new Record("ana", 90));
+    ranking.add(new Record("gustavo", 10));
+    ranking.add(new Record("daniela", 30));
+    ranking.add(new Record("vitor", 34));
+    ranking.add(new Record("julia", 91));
+    ranking.add(new Record("luiza", 22));
+    ranking.add(new Record("maria", 9));
+    Assertions.assertTrue(ranking.add(new Record("gabriela", 1)));
+   }
+
+   @Test
+   public void testZeroRecords() {
+     Assertions.assertEquals(0, ranking.numRecords());
+   }
+
+   @Test
    public void testNumRecords() {
       ranking.add(new Record("lucas", 100));
       ranking.add(new Record("joao", 20));
@@ -58,7 +77,8 @@ public class RankingTeste {
       ranking.add(new Record("julia", 91));
       ranking.add(new Record("luiza", 22));
       ranking.add(new Record("maria", 9));
-      Assertions.assertEquals(9, ranking.numRecords());
+      ranking.add(new Record("dalila", 7));
+      Assertions.assertEquals(10, ranking.numRecords());
    }
 
    @Test
